@@ -94,3 +94,43 @@ as.POSIXct(dat$Timestamp)
 #2.2
 dat$Timestamp=as.POSIXct()
 
+
+                               WEEK 4
+
+#1
+price =read.csv("http://www.math.bas.bg/statlab/tchorbadjieff/Shares_price_ts.csv")
+price
+
+aggregate(price$Price, by = list(price$Volume, FUN = var))
+          
+          #2
+          a = c(0, 1.5, 2)
+          b = c(2, 0, 1.5)
+          c = c(2, 1, 0.5)
+          mass = c(2.5, 2.5, 5)#sum(m)=10
+          t = matrix(c(a, b, c), 3, 3)
+          t
+          apply(t, 1, function(x, m)sum((x * m)/sum(m)), m = mass)#1.5 0.875, 1.125 , 1-po redovete
+          #((0,2,2)*(2.5,2.5,5))/10+((1.5,0,1)*(2.5,2.5,5))/10+((2,1.5,0.5)*(2.5,2.5,5))/10=
+          #=(2*2.5+2*5)/10=1.5-centura na masa na 1va chastica, (1.5*2.5+0+1*5)/10=8.75/10=0.875-centura na masa na 2ra chastica,...)
+
+
+ #3v tetr ??dali ne rtqbva da sa razmeneni px i py, t.e px da sumata po redovetea py - po kolonite
+          p=matrix(c(1/8,1/8,0,0,0,2/8,2/8,0,0,0,1/8,1/8),3,4,byrow=TRUE)
+          p
+          px=apply(p,2,sum)#sled kato 2riq argument e 2 znachi po kolonite,subira chislata v kolonata
+          py=apply(p, 1, sum)
+          px
+          py
+           
+   #4 ???
+         aggregate(mtcars,by=list(cyl=mtcars$cyl,gear=mtcars$gear),FUN=mean())
+          
+          
+          
+          #5
+          a=read.csv("http://www.math.bas.bg/statlab/tchorbadjieff/merge1.dat",header=TRUE)
+          a
+          b=read.csv("http://www.math.bas.bg/statlab/tchorbadjieff/merge2.dat",header=TRUE)
+          b
+          merge(a,b)
