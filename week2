@@ -1,0 +1,56 @@
+                           ################### WEEK 2 ######################
+                           #1zad ??
+x = list(1, 2, 3, 4)
+x2 = list(1:4)
+x
+x2
+
+#2zad
+library(MASS)
+head(mtcars)
+mtcars[mtcars$cyl==8,]#za kakvo ni e zapetaqta
+mtcars[mtcars["cyl"]==8,]
+mtcars$cyl==8  #vrushta logicheski vector
+
+#2.2
+mtcars[mtcars$gear==5,]
+mtcars[mtcars$gear==5,]$mpg
+mean(mtcars[mtcars$gear==5,]$mpg) #sredno aritmetichnoto
+median(mtcars[mtcars$gear==5,]$mpg)
+
+
+#3zad
+library(MASS)
+head(survey)
+t=table(survey$Sex,survey$Smoke)
+t
+barplot(t)
+t1=table(survey[,c("Sex","Smoke")])#vzimame kolonite pri vektorite "Sex"&"Smoke"
+t1
+barplot(table(survey[,c("Sex","Smoke")]))
+
+#3.2
+table(survey$Smoke)
+t=table(survey$Smoke)
+prop.table(t)  # vsqko delim na obshtata suma-236
+pie(t)#edin i sushti rezultat s dolnoto
+pie(prop.table(t))
+
+
+#3.3
+table(survey$Pulse)
+t1=table(survey$Pulse)
+t1
+prop.table(t1) 
+hist(survey$Pulse) # y=frequency
+hist(t1)#razlichno ot gornotot, ne trqbva taka
+hist(survey$Pulse,probability = TRUE) #y=density
+plot(survey$Pulse)
+plot(t1)
+
+
+#3.4
+table(survey$Age)
+t2=table(survey$Age)
+prop.table(t2) 
+barplot(t2)
