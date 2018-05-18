@@ -54,3 +54,43 @@ table(survey$Age)
 t2=table(survey$Age)
 prop.table(t2) 
 barplot(t2)
+                                             WEEK 3
+                                             
+#1zad
+library(MASS)
+head(mtcars)
+mtcars#???????????? ???? ?? 8 ??????????????????
+a=mtcars[mtcars$cyl==6,]#???????? ?? 6 ?????????????????? ?
+a=a[a$gear==4,]
+a
+
+b=mtcars[mtcars$gear==4,]
+b
+b=b[b$cyl==6,]#???????? ?? 6 ?????????????????? ?
+b
+
+
+subtable=mtcars[mtcars$cyl==6&mtcars$gear==4,]
+subtable
+labels(subtable)[1]
+intersect(labels(subtable)[1],c("Merc 280","Merc 280"))#ne raboti
+intersect(labels(subtable)[[1]],c("Merc 280","Merc 280"))# raboti
+
+mtcars[mtcars$gear==4,]
+subtable=mtcars[mtcars$gear==4,]
+subtable
+labels(subtable)
+labels(subtable)[1]
+labels(subtable)[[1]]
+intersect(labels(subtable)[[1]],c("Merc 280","Honda Civic"))# raboti
+
+#2zad
+dat=read.csv("http://www.math.bas.bg/statlab/tchorbadjieff/Shares_price_ts.csv")
+dat
+plot(as.POSIXct(dat$Timestamp),dat$Price)
+
+dat$Timestamp
+as.POSIXct(dat$Timestamp)
+#2.2
+dat$Timestamp=as.POSIXct()
+
