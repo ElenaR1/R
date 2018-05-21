@@ -197,3 +197,62 @@ ith observation = q (n + 1)
 ith observation = .2 (40 + 1) = 8.2
 Answer: The ith observation is at 8.2, so we round down to 8 (remembering that this formula is an estimate). The 8th number in the set is 13, which is the number where 20 percent of the values fall below it.          
           
+1zad-obqsnena v tetr
+#1
+choose(47,3)/choose(52,4)
+#=
+(48/52)*(47/51)*(46/50)*(45/49)*(4/48)
+
+
+#2i3-tetr
+#2
+dbinom(50,79,1/2)#veroqnostta da izvadq 50 klechkiot pravilnata kutiq, kato obhsto sum ivadila 79 klecki
+#ili:
+choose(79,50)*2^(21-100)#sushtoto
+dbinom(29,79,1/2)#sshtoto reshenie t.k veroqnostta ni e simetrichna
+          
+#3
+dnbinom(1,2,1/2)#1 failute occurs before the 2nd success ?
+#c(3:7)-2=[1,2,3,4,5]
+dnbinom(c(3:7)-2,2,1/2)#smqta 1va chasta ot zadachata,imame 1ili2ili3ili4ili5 neuspeha predi 2roto ezi
+dnbinom(1:5,2,1/2)#sushtoto kato gornoto
+pnbinom(4,2,1/2,lower.tail = F)## ?
+dnbinom(c(3:7)-2,2,2/5)#za 2roto izrechenie
+
+
+sum(dnbinom(c(2:6)-2,2,1/2))
+pnbinom(4,2,1/2)#0.890625
+pnbinom(4,2,1/2,lower.tail = F)#v tetradkata pishe, za da presmetnem za 7 i poveche ??
+qnbinom(0.890625,2,1/2)#4
+
+#4
+pnbinom(x,3,3/10)#=0.1852
+
+qnbinom(1-0.18522,3,7/10)#vrushtame obratnoto razpredelenie (neuspehite)
+qnbinom(0.18522,3,3/10)#=3/10
+
+
+#5
+phyper(35,0.4*600000,0.6*600000,100)#0.1794489
+pop <- rep(c(0,1),c(360000, 240000))# s 0 simulirame muje s 1 jeni
+length(pop)
+sample(pop,100)#vzima random 100 choveka ot pop
+sums<-sapply(1:1000,function(x) sum(sample(pop,100)))#vzimame sumata ot tezi 100 choveka i t.k
+#mujete sa 0li, sumata shte ni dade broq na jenite,i tova go pravi 1000 puti
+sums
+sum(sums<=35)/1000#vzima tezi koito sa <35 i delim na 1000(broi opiti) za da vzemem procent 
+#i sikame opita da e blizo do 0.1794-poluchenoto ot phyper
+
+#sample- randomly reorders the elements passed as the first argument. This means that
+#the default size is the size of the passed array.
+print(sample(c(2,5,3), size=3, replace=FALSE))
+print(sample(c(2,5,3), size=3, replace=TRUE))#If this is true a sample may contain an element several 
+#times while another element might not occur at all.
+
+
+#6
+dpois(2,lambda=10)
+ppois(2,10)-dpois(2,10)
+#=
+ppois(1,10)#0ili 1 obajdaniq
+ppois(1,10,lower.tail = F)#lower.tail	logical; if TRUE (default), probabilities are P[X ??? x], otherwise, P[X > x].
