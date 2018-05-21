@@ -1,3 +1,5 @@
+https://www.theanalysisfactor.com/?s=R+is+not+so+hard
+
                            ################### WEEK 2 ######################
  counts <- table(mtcars$gear)
 barplot(counts, main="Car Distribution", 
