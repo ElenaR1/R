@@ -3,12 +3,15 @@
 barplot(counts, main="Car Distribution", 
         xlab="Number of Gears")
 
-da = c(1,2,3,4,5)
-fda = factor(da)
-fda
-t=table(fda)#
-barplot(t)#RAZLIKATA MEJDU TOVA I DOLNOTO ? 
-barplot(da)
+
+https://www.theanalysisfactor.com/r-11-bar-charts/ !!!!!!!!!!!!!!!!!!!!!!
+H <- c(2,3,3,3,4,5,5,5,5,6)
+counts <- table(H)
+counts#POKAZVA PO KOLKO POUTI SE SRESHTA VSQKA CIFRA
+
+barplot(counts)#pokazva kolko chesto se sreshtat cifrite
+barplot(H)#ot tova nqma smiusl zashtoto ne pokazva kolko chesto se sreshtat cifrite
+
 
                           
                            
